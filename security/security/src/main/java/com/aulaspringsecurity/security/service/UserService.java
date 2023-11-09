@@ -1,7 +1,7 @@
-package com.aula071.service;
+package com.aulaspringsecurity.security.service;
 
-import com.aula071.entity.UserEntity;
-import com.aula071.repository.UserRepository;
+import com.aulaspringsecurity.security.entity.UserEntity;
+import com.aulaspringsecurity.security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

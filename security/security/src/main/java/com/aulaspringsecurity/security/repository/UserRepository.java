@@ -1,6 +1,6 @@
-package com.aula071.repository;
+package com.aulaspringsecurity.security.repository;
 
-import com.aula071.entity.UserEntity;
+import com.aulaspringsecurity.security.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

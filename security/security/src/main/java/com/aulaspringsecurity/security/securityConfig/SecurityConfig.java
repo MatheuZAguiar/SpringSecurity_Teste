@@ -1,7 +1,6 @@
-package com.aula071.securityConfig;
+package com.aulaspringsecurity.security.securityConfig;
 
-import com.aula071.repository.UserRepository;
-import com.aula071.service.UserService;
+import com.aulaspringsecurity.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,9 +25,10 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/livre").permitAll()
+                        .requestMatchers("/api/users").permitAll()
                         .anyRequest().authenticated());
         http.httpBasic(Customizer.withDefaults());
 

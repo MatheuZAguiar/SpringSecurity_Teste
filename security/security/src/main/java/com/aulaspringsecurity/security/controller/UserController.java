@@ -1,8 +1,10 @@
-package com.aula071.controller;
+package com.aulaspringsecurity.security.controller;
 
-import com.aula071.service.UserService;
-import com.aula071.entity.UserEntity;
+import com.aulaspringsecurity.security.entity.UserEntity;
+import com.aulaspringsecurity.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +31,12 @@ public class UserController {
 
     @PostMapping
     public UserEntity createUser(@RequestBody UserEntity user) {
+        String encodedPassword = passwordEncoder().encode(user.getPassword());
+        user.setPassword(encodedPassword);
+
         return userService.createUser(user);
+    }
+    private PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
